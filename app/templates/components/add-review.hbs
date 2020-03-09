@@ -1,0 +1,9 @@
+<div class="add-review">
+  <label for="customRange2">Overall Rating - {{rating}}/5</label>
+  {{input value=rating type="range" class="custom-range" min="0" max="5" id="customRange2"}}
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    {{textarea value=comment class="form-control" id="exampleFormControlTextarea1" rows="3"}}
+  </div>
+  <button type="button" class="btn btn-success" {{action "submitReview"}}>Submit</button>
+</div>

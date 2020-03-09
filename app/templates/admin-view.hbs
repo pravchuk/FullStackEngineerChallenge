@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Ashwini</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Praveen</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Annappa</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Koteswara</a>
+      {{#each model as |employee|}}
+        <a class={{concat "list-group-item " "list-group-item-action " (if (eq selectedEmployee.id employee.id) "active")}} {{action "employeeClicked" employee}} id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">{{employee.name}}</a>
+      {{else}}
+        Sorry, nobody is here.
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+        {{profile-main employee=selectedEmployee refreshModel=refreshModel}}
+      </div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">P</div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">K</div>
+    </div>
+  </div>
+</div>

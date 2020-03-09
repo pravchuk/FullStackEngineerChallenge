@@ -1,0 +1,20 @@
+
+{{#each myReviews as |review|}}
+  {{#if (eq review.status "done")}}
+    <div class="card border-success mb-3 peer-review">
+      <div class="card-header">Peer review by {{review.name}} </div>
+      <div class="card-body text-dark">
+        <h5 class="card-title">Overall Rating : {{review.rating}}/5</h5>
+        <p class="card-text">{{review.comment}}</p>
+      </div>
+    </div>
+  {{else}}
+    <div class="card border-danger mb-3 peer-review">
+      <div class="card-header">Peer review by {{review.name}} ({{review.status}})</div>
+    </div> 
+  {{/if}}
+{{/each}}
+
+
+
+{{yield}}

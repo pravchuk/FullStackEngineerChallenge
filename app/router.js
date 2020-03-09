@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('employee-view');
+  this.route('admin-view');
 });
 
 export default Router;

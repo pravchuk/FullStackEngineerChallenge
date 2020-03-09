@@ -1,0 +1,19 @@
+.profile-fields{
+    margin-top: 50px;
+}
+
+.peer-review{
+    margin-top: 20px;
+}
+
+.profile-view{
+    margin: 20px;
+}
+
+.add-review{
+    margin: 20px;
+}
+
+.disabled{
+    display: none;
+}
