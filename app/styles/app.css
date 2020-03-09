@@ -17,3 +17,7 @@
 .disabled{
     display: none;
 }
+
+.add-peer{
+    margin:20px;
+}

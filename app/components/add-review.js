@@ -26,8 +26,5 @@ export default Component.extend({
                 employeeTo.save();
             });
         }
-    },
-    _handleSuccessResponse(response){
-        this.store.pushPayload(response);
     }
 });

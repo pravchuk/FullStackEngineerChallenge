@@ -1,0 +1,19 @@
+<div class="add-peer">
+  {{!-- <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+  </div> --}}
+  <ul class="list-group">
+    {{#each allEmployees as |employee| }}
+      <li class="list-group-item">{{employee.name}}</li>
+    {{else}}
+      <li class="list-group-item">Everyone has already been assigned.</li>
+    {{/each}}
+    {{!-- <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li> --}}
+  </ul>
+</div>
