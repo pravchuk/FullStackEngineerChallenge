@@ -6,10 +6,6 @@ export default Controller.extend({
     actions:{
         employeeClicked(employee){
             set(this,'selectedEmployee', employee);
-        },
-        refreshModel(){
-            debugger
-            this.send('refreshModel');
         }
     }
 });

@@ -13,7 +13,6 @@ export default Component.extend({
             let rating = get(this, 'rating');
             let comment = get(this, 'comment');
             let newReview = this.store.createRecord('review',{
-                id: "12345",
                 by: "10002",
                 name: "Praveen",
                 status: "done",
@@ -24,12 +23,8 @@ export default Component.extend({
             let employeeTo = get(this, 'employeeTo');
             employeeTo.get('reviews').pushObject(newReview);
             newReview.save().then(function(){
-                employeeTo.save()
-                .then(function(){
-                    let refreshModel = get(this, 'refreshModel');
-                    refreshModel();
-                }.bind(this));
-            }.bind(this));
+                employeeTo.save();
+            });
         }
     },
     _handleSuccessResponse(response){

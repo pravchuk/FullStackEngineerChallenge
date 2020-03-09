@@ -4,10 +4,12 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
     store: service(),
-    myReviews: computed('employee',function(){
+    employeeId: computed('employee.id', function(){
+        return get(this, 'employee').id;
+    }),
+    myReviews: computed('employee.reviews',function(){
         if(get(this,"employee")){
-            let employeeId = get(this,"employee");
-            let data =  this.store.query("review", {'employee' : employeeId})
+            let data =  this.store.query("review", {'employee' : get(this, 'employeeId')});
             return data;
         }else{
             return {};

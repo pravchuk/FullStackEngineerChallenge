@@ -15,11 +15,10 @@
       </div>
     </div>
   </div>
-  {{ratings-provided employee=employee.id}}
+  {{ratings-provided employee=employee}}
   {{peer-actions addReview=(action "addReview")}}
   {{add-review  
     isEnabled=showAddReview
     employeeTo=employee
-    refreshModel=refreshModel
   }}
 </div>

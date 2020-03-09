@@ -10,7 +10,6 @@ export default Component.extend({
         }
     },
     init(){
-        debugger
         this._super(...arguments);
     }
 });
