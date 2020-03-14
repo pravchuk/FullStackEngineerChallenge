@@ -5,6 +5,7 @@ export default Controller.extend({
     selectedEmployee: {},
     openModal: false,
     newEmployee: {}, 
+    currentEmployee: null,
     radioOptions: [
         {
           label: 'Admin',
@@ -16,6 +17,10 @@ export default Controller.extend({
         }
     ],
     init(){
+        debugger
+        if(!get(this,'currentEmployee')){
+            this.transitionToRoute('login');
+        }
         this._super(...arguments);
     },
     actions:{
@@ -28,6 +33,7 @@ export default Controller.extend({
         submit(){
             this.store.createRecord('employee', get(this,'newEmployee'));
             set(this, 'newEmployee', {});
+            set(this, 'openModal', false);
         }
     }
 });

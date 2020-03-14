@@ -1,0 +1,16 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="assets/icons/paypay.png" id="icon" alt="User Icon" ><br/>
+      <h3 class="peerreview">Peer Review</h3>
+    </div>
+
+    <form>
+      {{input value=username type="text" id="login" class="fadeIn second" name="login" placeholder="Username"}}
+      {{input value=password type="password" id="password" class="fadeIn third" name="login" placeholder="Password"}}
+      <button class="fadeIn fourth" {{action "login" preventDefault=true}}>Log In</button>
+    </form>
+
+  </div>
+</div>

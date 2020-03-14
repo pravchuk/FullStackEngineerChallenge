@@ -11,15 +11,20 @@ export default Component.extend({
         let employeeTo = get(this, 'employeeTo');
         let employees = get(this, 'model');
         let employeesAlreadyAssigned = get(this, 'employeesAlreadyAssigned');
-        if(get(this, 'justAssigned') === false){
-            this.store.query('review',{'employee': get(this, 'employeeTo').id}).then((response)=>{
-                response = response.map(review => review.by);
-                employeesAlreadyAssigned = response;
-                set(this, 'justAssigned', true);
-                set(this, 'employeesAlreadyAssigned', response);
-            })
+        if(get(this, 'employeeTo.reviews').firstObject){
+            if(get(this, 'justAssigned') === false){
+                this.store.query('review',{'employee': get(this, 'employeeTo').id}).then((response)=>{
+                    response = response.map(review => review.by);
+                    employeesAlreadyAssigned = response;
+                    set(this, 'justAssigned', true);
+                    set(this, 'employeesAlreadyAssigned', response);
+                })
+            }else{
+                set(this, 'justAssigned', false);
+            }
         }else{
-            set(this, 'justAssigned', false);
+            set(this, 'employeesAlreadyAssigned', []);
+            employeesAlreadyAssigned = [];
         }
         return employees.filter(employee => {
             if(employeeTo.id != employee.id && !employeesAlreadyAssigned.includes(employee.id))

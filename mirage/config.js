@@ -27,13 +27,20 @@ export default function() {
   // this.get('/employees');
   this.get('/employees', (schema, request) => {
     let { queryParams } = request;
-    if ( queryParams && queryParams.name) {
+    if ( queryParams) {
       let employeeFromRecord = schema.db.employees;
       let json = {};
       if ( employeeFromRecord ) {
-        let { name } = queryParams;
-        json.employees = employeeFromRecord.where({ name: name });
-        return json;
+        if(queryParams.name){
+          let { name } = queryParams;
+          json.employees = employeeFromRecord.where({ name: name });
+          return json;
+        }
+        if(queryParams.username && queryParams.password){
+          let { username, password } = queryParams;
+          json.employees = employeeFromRecord.where({ username: username , password: password});
+          return json;
+        }
       }
     }
     return {

@@ -6,7 +6,7 @@
       {{else}}
         Sorry, nobody is here.
       {{/each}}
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong" {{action "addEmployee"}}>+ Add Employee</button>
+      <button type="button" class="btn btn-info addEmployee" data-toggle="modal" data-target="#exampleModalLong" {{action "addEmployee"}}>+ Add Employee</button>
     </div>
   </div>
   <div class="col-8">
@@ -38,12 +38,12 @@
       <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @required={{true}} @helpText="Minimum 6 characters" />
       <form.element @controlType="checkbox" @label="Is he/she an admin?" @property="isAdmin" />
       {{!-- <form.element @controlType="radio" @label="isAdmin" @property="isAdmin" @options={{radioOptions}} @optionLabelPath="label" /> --}}
-      <BsButton @defaultText="Submit" @type="primary" @buttonType="" />
+      {{!-- <BsButton @defaultText="Submit" @type="primary" @buttonType="" /> --}}
     </BsForm>
   </modal.body>
   <modal.footer>
     <BsButton @onClick={{action modal.close}}>Cancel</BsButton>
     {{!-- <BsButton @type="danger">Delete</BsButton> --}}
-    {{!-- <BsButton @type="success" @onClick={{action modal.submit}}>Save</BsButton> --}}
+    <BsButton @type="success" @onClick={{action modal.submit}}>Save</BsButton>
   </modal.footer>
 </BsModal>

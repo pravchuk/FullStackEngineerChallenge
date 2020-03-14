@@ -8,11 +8,14 @@ export default Component.extend({
         return get(this, 'employee').id;
     }),
     myReviews: computed('employee.reviews',function(){
-        if(get(this,"employee")){
+        if(get(this,"employee.reviews").firstObject){
             let data =  this.store.query("review", {'employee' : get(this, 'employeeId')});
-            return data;
+            if(data)
+                return data;
+            else
+                return [];
         }else{
-            return {};
+            return [];
         }
     })
 });

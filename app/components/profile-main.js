@@ -6,7 +6,6 @@ export default Component.extend({
     showAddReview: false,
     showAddPeer: false,
     imageFileName: computed('employee',function() {
-        debugger
         if(["10001","10002","10003"].includes(get(this, 'employee').id))
             return get(this, 'employee').id;
         else
