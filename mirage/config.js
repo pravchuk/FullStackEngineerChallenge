@@ -48,6 +48,11 @@ export default function() {
     }
   });
 
+  this.post('/employees', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody).employee;
+    return schema.employees.create(attrs);
+  });
+
   this.get('/employees/:id', (schema, request) => {
     let id = request.params.id;
     return schema.employees.find(id);

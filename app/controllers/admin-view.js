@@ -17,7 +17,6 @@ export default Controller.extend({
         }
     ],
     init(){
-        debugger
         if(!get(this,'currentEmployee')){
             this.transitionToRoute('login');
         }
@@ -31,7 +30,8 @@ export default Controller.extend({
             set(this, 'openModal', true);
         },
         submit(){
-            this.store.createRecord('employee', get(this,'newEmployee'));
+            let brandNewEmployee = this.store.createRecord('employee', get(this,'newEmployee'));
+            brandNewEmployee.save();
             set(this, 'newEmployee', {});
             set(this, 'openModal', false);
         }
