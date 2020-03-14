@@ -16,7 +16,7 @@
     </div>
   </div>
   {{ratings-provided employee=employee}}
-  {{peer-actions addReview=(action "addReview") addPeer=(action "addPeer")}}
+  {{peer-actions addReview=(action "addReview") addPeer=(action "addPeer") hideAddReviewButton=hideAddReviewButton}}
   {{add-review  
     isEnabled=showAddReview
     employeeTo=employee

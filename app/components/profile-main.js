@@ -1,7 +1,9 @@
 import Component from '@ember/component';
 import { set,get,computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+    sessionAccount: service('session-account'),
     
     showAddReview: false,
     showAddPeer: false,
@@ -10,6 +12,9 @@ export default Component.extend({
             return get(this, 'employee').id;
         else
             return "sample";
+    }),
+    hideAddReviewButton: computed('employee',function(){
+        return (get(this,'employee').id === this.sessionAccount.getCurrentUser().id);
     }),
     actions:{
         addReview(){
