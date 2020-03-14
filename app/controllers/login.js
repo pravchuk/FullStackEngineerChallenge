@@ -1,10 +1,10 @@
 import Controller from '@ember/controller';
-import { get,set } from "@ember/object";
+import { get } from "@ember/object";
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
     store: service(),
-    currentEmployee: null,
+    sessionAccount: service('session-account'),
 
     actions:{
         login(){
@@ -18,10 +18,8 @@ export default Controller.extend({
                "password": password
            }).then((response) => {
                if(response){
-                    set(this, 'currentEmployee', response);
-                    this.transitionToRoute('admin-view').then((newRoute) => {
-                        newRoute.set('controller.currentEmployee', response);
-                    });
+                    this.sessionAccount.setCurrentUser(response);
+                    this.transitionToRoute('admin-view')
                 }else{
                     alert("enter valid credentials")
                 }

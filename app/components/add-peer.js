@@ -44,7 +44,8 @@ export default Component.extend({
             employeeTo.get('reviews').pushObject(newReview);
             newReview.save().then(function(){
                 employeeTo.save();
-            });
+                get(this, 'afterAddingPeer')();
+            }.bind(this));
         }
     }
 });

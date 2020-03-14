@@ -1,12 +1,22 @@
+<nav class="navbar navbar-dark bg-info">
+  <a class="navbar-brand" href="#">PayPay - Peer Review</a>
+  <span>User: {{currentUserFullName}}</span>
+  <span class="navbar-text clickable" {{action "logout" on="click"}}>
+    Log out
+  </span>
+</nav>
 <div class="row">
   <div class="col-4">
+    <h4>Employee List:</h4>
     <div class="list-group" id="list-tab" role="tablist">
       {{#each model as |employee|}}
         <a class={{concat "list-group-item " "list-group-item-action " (if (eq selectedEmployee.id employee.id) "active")}} {{action "employeeClicked" employee}} id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">{{employee.name}}</a>
       {{else}}
         Sorry, nobody is here.
       {{/each}}
-      <button type="button" class="btn btn-info addEmployee" data-toggle="modal" data-target="#exampleModalLong" {{action "addEmployee"}}>+ Add Employee</button>
+      {{#if isUserAdmin}}
+        <button type="button" class="btn btn-info addEmployee" data-toggle="modal" data-target="#exampleModalLong" {{action "addEmployee"}}>+ Add Employee</button>
+      {{/if}}
     </div>
   </div>
   <div class="col-8">

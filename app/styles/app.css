@@ -260,3 +260,12 @@
   .peerreview{
     margin-bottom:20px;
   }
+
+  .navbar{
+    margin-bottom: 30px;
+  }
+
+  .clickable{
+    cursor: pointer;
+    color: white!important;
+  }

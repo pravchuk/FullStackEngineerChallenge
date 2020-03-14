@@ -75,8 +75,12 @@ export default function() {
       let reviewFromRecord = schema.db.reviews;
       let json = {};
       if ( reviewFromRecord ) {
-        let { employee } = queryParams;
-        json.reviews = reviewFromRecord.where({ 'employee_id': employee });
+        let { employee, by } = queryParams;
+        if(by){
+          json.reviews = reviewFromRecord.where({ 'employee_id': employee, 'by': by });
+        }else{
+          json.reviews = reviewFromRecord.where({ 'employee_id': employee });
+        }
         return json;
       }
     }
@@ -90,6 +94,8 @@ export default function() {
     let review = schema.db.reviews.find(id);
     return review;
   });
+  
+  this.del('/reviews/:id');
 
   this.post('/reviews', (schema, request) => {
     let review = JSON.parse(request.requestBody);

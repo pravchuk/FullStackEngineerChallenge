@@ -20,9 +20,11 @@
   {{add-review  
     isEnabled=showAddReview
     employeeTo=employee
+    afterAddingReview=(action (mut showAddReview false))
   }}
   {{add-peer
     isEnabled=showAddPeer
     employeeTo=employee
-    model=model}}
+    model=model
+    afterAddingPeer=(action (mut showAddPeer false))}}
 </div>

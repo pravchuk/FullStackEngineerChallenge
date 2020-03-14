@@ -1,11 +1,12 @@
 import Controller from '@ember/controller';
-import {set, get} from '@ember/object';
+import {set, get, computed} from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+    sessionAccount: service('session-account'),
     selectedEmployee: {},
     openModal: false,
-    newEmployee: {}, 
-    currentEmployee: null,
+    newEmployee: {},
     radioOptions: [
         {
           label: 'Admin',
@@ -16,8 +17,17 @@ export default Controller.extend({
           value: false
         }
     ],
+    currentUserFullName: computed('sessionAccount.user', function(){
+        if(this.sessionAccount.getCurrentUser().isAdmin)
+            return this.sessionAccount.getCurrentUser().name + " (Admin)";
+        else
+        return this.sessionAccount.getCurrentUser().name;
+    }),
+    isUserAdmin: computed('sessionAccount.user',function(){
+        return this.sessionAccount.getCurrentUser().isAdmin;
+    }),
     init(){
-        if(!get(this,'currentEmployee')){
+        if(!this.sessionAccount.getCurrentUser()){
             this.transitionToRoute('login');
         }
         this._super(...arguments);
@@ -34,6 +44,10 @@ export default Controller.extend({
             brandNewEmployee.save();
             set(this, 'newEmployee', {});
             set(this, 'openModal', false);
+        },
+        logout(){
+            this.sessionAccount.setCurrentUser(null);
+            this.transitionToRoute('login');
         }
     }
 });

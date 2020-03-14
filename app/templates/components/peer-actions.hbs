@@ -1,2 +1,4 @@
-<button type="button" class="btn btn-info" {{action "clickPeer"}}>+ Assign Peer</button>
+{{#if isUserAdmin}}
+  <button type="button" class="btn btn-info" {{action "clickPeer"}}>+ Assign Peer</button>
+{{/if}}
 <button type="button" class="btn btn-success" {{action "clickReview"}}>+ Add Review</button>
