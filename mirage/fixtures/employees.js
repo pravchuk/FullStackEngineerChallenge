@@ -6,6 +6,7 @@ export default [
             "role": "Business Analyst",
             "team": "Platform Services",
             "isAdmin": false,
+            "username": "ashwini",
             "password": "123",
             "reviews":[
                 {
@@ -25,6 +26,7 @@ export default [
             "role": "Software Engineer",
             "team": "Center of Excellence",
             "isAdmin": true,
+            "username": "praveen",
             "password": "123",
             "reviews":[
                 {
@@ -44,6 +46,7 @@ export default [
             "role": "Quality Assurance",
             "team": "Product Team",
             "isAdmin": true,
+            "username": "kotes",
             "password": "123",
             "reviews":[
                 {

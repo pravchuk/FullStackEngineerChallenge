@@ -44,13 +44,14 @@ export default [
         "rating": 4,
         "comment": "Very good.",
         "employee_id": "10003"
-    },
-    {
-        "id":"6",
-        "by": "10002",
-        "name": "Praveen",
-        "type": "review",
-        "status": "pending",
-        "employee_id": "10003"
     }
+    // ,
+    // {
+    //     "id":"6",
+    //     "by": "10002",
+    //     "name": "Praveen",
+    //     "type": "review",
+    //     "status": "pending",
+    //     "employee_id": "10003"
+    // }
 ]
