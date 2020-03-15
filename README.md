@@ -28,3 +28,8 @@ You will need the following things properly installed on your computer.
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
+
+## Login Credentials
+
+* Normal Employee -- Example -- Username: ashwini Password: 123
+* Admin Employee  -- Example -- Username: praveen Password: 123
